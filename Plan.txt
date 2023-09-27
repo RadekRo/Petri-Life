@@ -1,0 +1,100 @@
+What is a size of a dish?
+Should be scalable
+min 5x5 
+
+Models
+
+Bacteria class
+Life Span
+Nearby
+Position
+
+Bacillus : Bacteria
+Life Span 10
+Nearby 3
+Coccus : Bacteria
+Life Span 100
+Nearby 1
+Spirillum : Bacteria
+Life Span 40
+Nearby 2
+
+View
+Display.cs
+
+Controller
+PetriDishController.cs
+
+
+To use the objects' coordinates to fill the corresponding positions on the board, you can modify the code as follows:
+
+
+
+csharp
+Copy code
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        // Create a 5x5 board as a 2D array
+        MyObject[,] board = new MyObject[5, 5];
+
+        // Create and add objects to the board
+        MyObject obj1 = new MyObject(2, 4);
+        MyObject obj2 = new MyObject(3, 5);
+
+        // Add objects to the board using their coordinates
+        board[obj1.X, obj1.Y] = obj1;
+        board[obj2.X, obj2.Y] = obj2;
+
+        // Display the board
+        for (int row = 0; row < 5; row++)
+        {
+            for (int col = 0; col < 5; col++)
+            {
+                MyObject obj = board[row, col];
+                if (obj != null)
+                {
+                    Console.Write(obj.ToString());
+                }
+                else
+                {
+                    Console.Write("Empty");
+                }
+
+                Console.Write("\t");
+            }
+            Console.WriteLine();
+        }
+    }
+}
+In this updated code:
+
+We create two MyObject instances, obj1 and obj2, with coordinates [2, 4] and [3, 5], respectively.
+
+We use the coordinates of these objects to access and set the corresponding positions on the board 2D array. This ensures that the objects are placed correctly on the board based on their coordinates.
+
+The rest of the code for displaying the board remains the same as in the previous example.
+
+Now, the objects are added to the board at their respective coordinates, allowing you to use their coordinates to fill the necessary positions on the board accurately. This helps you practice working with objects and their coordinates in C#.
+
+
+
+PetriDish class
+Singleton
+
+LifeController
+
+
+ANKARA FC czwartek:
+Radek Rocławski
+Szymon Żuchowski (+)
+Marek Nowacki (?)
+Bartosz Guzik
+Marcin Chmura
+Tomasz Klimczuk
+Łukasz Główczewski
+Michał Dyda (GK), Dawid Wilk (GK)
