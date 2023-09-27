@@ -12,5 +12,9 @@
             LifeSpan = 10;
             Nearby = 3;
         }
+        public override string ToString()
+        {
+            return "B";
+        }
     }
 }
