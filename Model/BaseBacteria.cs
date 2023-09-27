@@ -1,4 +1,5 @@
 ﻿using Petri_Life.Enum;
+using System;
 
 namespace Petri_Life.Model
 {
@@ -15,5 +16,11 @@ namespace Petri_Life.Model
             PositionY = positionY;
             BacteriaType = bacteriaType;
         }
+        public BaseBacteria ShallowCopy()
+        {
+            return (BaseBacteria)this.MemberwiseClone();
+        }
     }
+
 }
+

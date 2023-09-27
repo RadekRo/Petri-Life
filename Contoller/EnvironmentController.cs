@@ -1,6 +1,7 @@
 ﻿using Petri_Life.DAO;
 using Petri_Life.Model;
 using Petri_Life.Utils;
+using System;
 
 namespace Petri_Life.Contoller
 {
@@ -8,6 +9,7 @@ namespace Petri_Life.Contoller
     {
         TimePulse tp = new TimePulse();
         BacteriaDAO bDAO = new BacteriaDAO();
+
         public void InititateTimePulse(List<BaseBacteria> bacteriasList)
         {
             List<BaseBacteria> bacteriesToVanish = new List<BaseBacteria>();
@@ -16,7 +18,14 @@ namespace Petri_Life.Contoller
 
                 if (tp.IsAbletoSplit(bacteria))
                 {
-                    Console.WriteLine($"{bacteria.BacteriaType.ToString()} has splitted!");
+                    var copyBacteria = bacteria.ShallowCopy();
+                    copyBacteria.PositionX = 1;
+                    Console.WriteLine(copyBacteria.BacteriaType);
+                    Console.WriteLine(bacteria.BacteriaType);
+                    Console.WriteLine(bacteria.PositionX);
+                    Console.WriteLine(copyBacteria.PositionX);
+                    Console.WriteLine(bacteria.LifeSpan);
+                    Console.WriteLine(copyBacteria.LifeSpan);
                     bacteriesToVanish.Add(bacteria);
                 }
             }
@@ -27,6 +36,7 @@ namespace Petri_Life.Contoller
             }
            
         }
+
         public void DecreaseBacteriasLife(List<BaseBacteria> bacteriasList)
         {
             foreach (BaseBacteria bacteria in bacteriasList)
