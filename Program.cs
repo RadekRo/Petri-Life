@@ -1,5 +1,6 @@
 ﻿using Petri_Life.Data;
 using Petri_Life.Model;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Petri_Life
 {
@@ -7,10 +8,16 @@ namespace Petri_Life
     {
         static void Main(string[] args)
         {
-            InitialSetup initialSetup = new InitialSetup();
+  
+            InitialSetup initSetup = new InitialSetup();
             List<BaseBacteria> livingBacteriasList = new List<BaseBacteria>();
-            initialSetup.InitialData(livingBacteriasList);
+            
+            initSetup.InitialData(livingBacteriasList);
             Console.WriteLine(livingBacteriasList[0]);
+            Console.WriteLine(livingBacteriasList[0].PositionX);
+            Console.WriteLine(livingBacteriasList[0].PositionY);
+            Console.WriteLine(livingBacteriasList[1]);
+            Console.WriteLine(livingBacteriasList.Count);
 
         }
     }
