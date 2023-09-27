@@ -5,10 +5,10 @@ namespace Petri_Life.Interfaces
 {
     public interface IBacteriaDAO
     {
-        void CreateBacteria(BacteriaTypes type);
-        void AddBacteria(List<BaseBacteria> bacteriaList, BaseBacteria bacteria);
-        void UpdateBacteria(BaseBacteria bacteria);
-        void DeleteBacteria(List<BaseBacteria> bacteriaList, BaseBacteria bacteria);
-        void SplitBacteria(List<BaseBacteria> bacteriaList, BaseBacteria bacteria);   
+        void Create(BacteriaTypes type);
+        void Add(List<BaseBacteria> bacteriaList, BaseBacteria bacteria);
+        void ReduceLife(BaseBacteria bacteria);
+        void Delete(List<BaseBacteria> bacteriaList, BaseBacteria bacteria);
+        void Split(List<BaseBacteria> bacteriaList, BaseBacteria bacteria);
     }
 }

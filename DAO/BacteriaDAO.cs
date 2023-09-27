@@ -11,29 +11,29 @@ namespace Petri_Life.DAO
 {
     public class BacteriaDAO : IBacteriaDAO
     {
-        public void AddBacteria(List<BaseBacteria> bacteriaList, BaseBacteria bacteria)
+        public void Add(List<BaseBacteria> bacteriaList, BaseBacteria bacteria)
         {
             throw new NotImplementedException();
         }
 
-        public void CreateBacteria(BacteriaTypes type)
+        public void Create(BacteriaTypes type)
         {
             throw new NotImplementedException();
         }
 
-        public void DeleteBacteria(List<BaseBacteria> bacteriaList, BaseBacteria bacteria)
+        public void Delete(List<BaseBacteria> bacteriaList, BaseBacteria bacteria)
+        {
+            bacteriaList.Remove(bacteria);
+        }
+
+        public void Split(List<BaseBacteria> bacteriaList, BaseBacteria bacteria)
         {
             throw new NotImplementedException();
         }
 
-        public void SplitBacteria(List<BaseBacteria> bacteriaList, BaseBacteria bacteria)
+        public void ReduceLife(BaseBacteria bacteria)
         {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateBacteria(BaseBacteria bacteria)
-        {
-            throw new NotImplementedException();
+            bacteria.LifeSpan--;
         }
     }
 }
