@@ -19,12 +19,23 @@ namespace Petri_Life.Model
             BacteriaType = bacteriaType;
         }
 
-        public BaseBacteria DeepCopy()
+        public BaseBacteria Split()
         {
-            BaseBacteria other = (BaseBacteria)this.MemberwiseClone();
-            other.LifeSpan = this.InitialLifeSpan;
-            return other;
+            BaseBacteria newInstance =  new (1, 5, BacteriaType);
+            return newInstance;
         }
+
+        public override string ToString()
+        {
+            return $"I am: {BacteriaType.ToString()}. I have lifespan: {this.LifeSpan} and I am positioned at: X({PositionX}), Y({PositionY}) and my Nearby range is: {Nearby}";
+        }
+
+        //public BaseBacteria DeepCopy()
+        //{
+        //    BaseBacteria other = (BaseBacteria)this.MemberwiseClone();
+        //    other.LifeSpan = this.InitialLifeSpan;
+        //    return other;
+        //}
     }
 }
 

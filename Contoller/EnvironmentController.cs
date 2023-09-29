@@ -18,14 +18,8 @@ namespace Petri_Life.Contoller
 
                 if (tp.IsAbletoSplit(bacteria))
                 {
-                    var copyBacteria = bacteria.ShallowCopy();
-                    copyBacteria.PositionX = 1;
-                    Console.WriteLine(copyBacteria.BacteriaType);
-                    Console.WriteLine(bacteria.BacteriaType);
-                    Console.WriteLine(bacteria.PositionX);
-                    Console.WriteLine(copyBacteria.PositionX);
-                    Console.WriteLine(bacteria.LifeSpan);
-                    Console.WriteLine(copyBacteria.LifeSpan);
+                    var newBacteria = bacteria.Split();
+                    Console.WriteLine(newBacteria);
                     bacteriesToVanish.Add(bacteria);
                 }
             }
@@ -34,7 +28,8 @@ namespace Petri_Life.Contoller
             {
                 bDAO.Delete(bacteriasList, bacteria);
             }
-           
+            
+
         }
 
         public void DecreaseBacteriasLife(List<BaseBacteria> bacteriasList)
