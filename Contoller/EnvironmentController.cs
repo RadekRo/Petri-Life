@@ -12,24 +12,30 @@ namespace Petri_Life.Contoller
 
         public void InititateTimePulse(List<BaseBacteria> bacteriasList)
         {
-            List<BaseBacteria> bacteriesToVanish = new List<BaseBacteria>();
+            List<BaseBacteria> bacteriesToRemove = new List<BaseBacteria>();
+            List<BaseBacteria> bacteriesToAdd = new List<BaseBacteria>();
             foreach (BaseBacteria bacteria in bacteriasList)
             {
 
                 if (tp.IsAbletoSplit(bacteria))
                 {
-                    var newBacteria = bacteria.Split();
+                    BaseBacteria newBacteria = bacteria.Split();
+                    newBacteria.PositionX = 1;
+                    newBacteria.PositionY = 1;
                     Console.WriteLine(newBacteria);
-                    bacteriesToVanish.Add(bacteria);
+                    bacteriesToRemove.Add(bacteria);
+                    bacteriesToAdd.Add(newBacteria);
                 }
             }
 
-            foreach (BaseBacteria bacteria in bacteriesToVanish)
+            foreach (BaseBacteria bacteria in bacteriesToRemove)
             {
                 bDAO.Delete(bacteriasList, bacteria);
             }
-            
-
+            foreach (BaseBacteria bacteria in bacteriesToAdd)
+            {
+                bacteriasList.Add(bacteria);
+            }
         }
 
         public void DecreaseBacteriasLife(List<BaseBacteria> bacteriasList)

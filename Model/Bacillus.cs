@@ -9,6 +9,14 @@ namespace Petri_Life.Model
             LifeSpan = 10;
             Nearby = 3;
         }
+        public override BaseBacteria Split()
+        {
+            return new Bacillus(PositionX, PositionY, BacteriaType)
+            {
+                LifeSpan = this.LifeSpan,
+                Nearby = this.Nearby
+            };
+        }
         public override string ToString()
         {
             return "B";

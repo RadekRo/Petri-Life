@@ -19,15 +19,9 @@ namespace Petri_Life.Model
             BacteriaType = bacteriaType;
         }
 
-        public BaseBacteria Split()
+        public virtual BaseBacteria Split()
         {
-            BaseBacteria newInstance =  new (1, 5, BacteriaType);
-            return newInstance;
-        }
-
-        public override string ToString()
-        {
-            return $"I am: {BacteriaType.ToString()}. I have lifespan: {this.LifeSpan} and I am positioned at: X({PositionX}), Y({PositionY}) and my Nearby range is: {Nearby}";
+            return new BaseBacteria(PositionX, PositionY, BacteriaType);
         }
 
         //public BaseBacteria DeepCopy()
